@@ -1,5 +1,5 @@
 <template>
-  <v-dialog max-width="500" v-model="dialog">
+  <v-dialog max-width="500" v-model="dialog ">
     <template v-slot:activator="{ on, attrs }">
       <v-btn small v-bind="attrs" v-on="on" elevation="0" color="warning"
         >Create New Project
