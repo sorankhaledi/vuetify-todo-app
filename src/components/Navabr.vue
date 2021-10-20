@@ -1,19 +1,24 @@
 <template>
   <nav>
-
     <v-snackbar v-model="snackbar" :timeout="4000" top color="success">
       <span>Awesome! You added a new project</span>
-      <v-btn elevation="0" color="success white--color" class="ml-5" @click="snackbar = false">Close</v-btn>
+      <v-btn
+        elevation="0"
+        color="success white--color"
+        class="ml-5"
+        @click="snackbar = false"
+        >Close</v-btn
+      >
     </v-snackbar>
 
-    <v-toolbar flat class="grey lighten-3">
+    <v-app-bar app height="100" class="grey lighten-3">
       <v-app-bar-nav-icon
         class="gret--text"
         @click="drawer = !drawer"
       ></v-app-bar-nav-icon>
       <v-toolbar-title class="text-uppercase grey--text text--darken-2">
         <span class="font-weight-light">Todo</span>
-        <span class="font-weight-bold">Soran</span>
+        <span class="font-weight-bold">saeed</span>
       </v-toolbar-title>
 
       <v-spacer></v-spacer>
@@ -21,7 +26,12 @@
       <!-- dropdown menu -->
       <v-menu offset-y>
         <template v-slot:activator="{ on, attrs }">
-          <v-btn elevation="0" color="grey lighten-3 grey--text text--darken-1" v-bind="attrs" v-on="on">
+          <v-btn
+            elevation="0"
+            color="grey lighten-3 grey--text text--darken-1"
+            v-bind="attrs"
+            v-on="on"
+          >
             <v-icon left>mdi-chevron-down</v-icon>
             <span>Menu</span>
           </v-btn>
@@ -51,11 +61,22 @@
         <span class="grey--text text--darken-1">Sign Out</span>
         <v-icon right color="grey">mdi-exit-to-app</v-icon>
       </v-btn>
-    </v-toolbar>
+    </v-app-bar>
     <!-- end signout button -->
 
     <!-- navigation menu -->
-    <v-navigation-drawer v-model="drawer" app class="indigo">
+    <v-navigation-drawer v-model="drawer" app class="indigo" src="https://www.teahub.io/photos/full/29-298413_background-image-for-navigation-drawer.png">
+         <v-btn @click="drawer=!drawer"
+      class="mt-2 ml-2"
+      fab
+      dark
+      small
+      color="primary"
+    >
+      <v-icon dark>
+        mdi-keyboard-backspace
+      </v-icon>
+    </v-btn>
       <v-row class="text-center">
         <v-col class="mt-2">
           <v-avatar size="100">
@@ -91,7 +112,7 @@
 </template>
 
 <script>
-import PopupVue from './Popup.vue';
+import PopupVue from "./Popup.vue";
 export default {
   data() {
     return {
@@ -101,11 +122,11 @@ export default {
         { icon: "mdi-folder", title: "My projects", route: "/projects" },
         { icon: "mdi-account", title: "Team", route: "/team" },
       ],
-      snackbar: false
+      snackbar: false,
     };
   },
   components: {
-    appPopup: PopupVue
-  }
+    appPopup: PopupVue,
+  },
 };
 </script>
